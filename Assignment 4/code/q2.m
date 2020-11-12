@@ -6,7 +6,7 @@ rng(190050128);
 mu = [1; 2];
 C = [1.6250, -1.9486; -1.9486, 3.8750];          % Given covariance matrix
 [U, D2] = eig(C);
-A = U*sqrt(D2)*U';
+A = U*sqrt(D2);
 
 samples = [10 100 1000 10000 100000];
 mean_error = zeros(100, 5);         % For boxplot of error in ML mean
