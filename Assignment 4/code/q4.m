@@ -41,20 +41,22 @@ ylabel('Eigenvalue');
 for i = 0:9
     if mod(i, 2) == 0
         figure;
-        sgtitle(['Digits ', num2str(i), ', ', num2str(i+1)]);
+        t = tiledlayout(2, 3);
+        title(t, ['Digits ', num2str(i), ', ', num2str(i+1)]);
     end
-    subplot(2, 3, 1 + 3*mod(i, 2));
-    imshow(reshape(Means(:, i+1) - sqrt(Eigvals(i+1))*Eigvecs(:, i+1), 28, 28));
+    
+    nexttile;
+    imagesc(reshape(Means(:, i+1) - sqrt(Eigvals(i+1))*Eigvecs(:, i+1), 28, 28));
     axis equal;
     title('\mu - sqrt(\lambda_1)v_1');
     
-    subplot(2, 3, 2 + 3*mod(i, 2));
-    imshow(reshape(Means(:, i+1), 28, 28));
+    nexttile;
+    imagesc(reshape(Means(:, i+1), 28, 28));
     axis equal;
     title('\mu');
     
-    subplot(2, 3, 3 + 3*mod(i, 2));
-    imshow(reshape(Means(:, i+1) + sqrt(Eigvals(i+1))*Eigvecs(:, i+1), 28, 28));
+    nexttile;
+    imagesc(reshape(Means(:, i+1) + sqrt(Eigvals(i+1))*Eigvecs(:, i+1), 28, 28));
     axis equal;
     title('\mu + sqrt(\lambda_1)v_1');
 end
