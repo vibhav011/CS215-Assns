@@ -45,12 +45,14 @@ for i = 1:5
     plot([X1; X2], [Y1; Y2], 'r');
     hold off;
     title(['Scatter plot and principal modes when N = ', num2str(N)]);
+    pause(2);
 end
 
 figure;
 boxplot(mean_error);
 title('Error between true mean and ML estimate of mean');
 xlabel('log_{10}(N)');
+pause(2);
 figure;
 boxplot(cov_error);
 title('Error between true cov and ML estimate of cov matrix');

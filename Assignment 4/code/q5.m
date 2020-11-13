@@ -43,4 +43,5 @@ for i = 0:9
     imagesc(regenerated_image);
     axis equal;
     title('Regenerated');
+    pause(1);
 end

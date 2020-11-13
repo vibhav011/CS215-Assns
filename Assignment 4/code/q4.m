@@ -10,7 +10,7 @@ labels = transpose(S.labels_train);                     % labels is a 1x60000 ro
 Means = zeros(784, 10);
 Covs = zeros(784, 784, 10);
 Eigvecs = zeros(784, 10);
-Eigvals = zeros(10);
+Eigvals = zeros(1, 10);
 
 for i = 0:9
     indices = find(labels == i);                        % extracting indices of current digit
@@ -36,6 +36,7 @@ xlim([0 50]);                       % Truncating rest of the values
 legend('0', '1', '2', '3', '4', '5', '6', '7', '8', '9');
 title('Plot of 784 eigenvalues for each digit (only first 50 shown)');
 ylabel('Eigenvalue');
+pause(3);
 
 % Last part
 for i = 0:9
@@ -59,4 +60,5 @@ for i = 0:9
     imagesc(reshape(Means(:, i+1) + sqrt(Eigvals(i+1))*Eigvecs(:, i+1), 28, 28));
     axis equal;
     title('\mu + sqrt(\lambda_1)v_1');
+    pause(1);
 end
