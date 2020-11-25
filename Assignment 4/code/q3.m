@@ -13,7 +13,7 @@ for fi = 1:2
     pf = points - mean;                     % mean shifted points
 
     % covariance matrix
-    C = pf * pf';
+    C = pf * pf' / (n-1);
 
     % V is  a matrix having eigenvectors of C (covariance matrix) as columns 
     % D is a diagonal matrix containing the corresponding eigenvalues 
