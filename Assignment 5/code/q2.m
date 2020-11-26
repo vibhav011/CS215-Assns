@@ -6,6 +6,8 @@
 clear;
 clc;
 close all;
+rng(190050125);
+
 M = 100;
 lambda = 5;
 alpha = 5.5;
@@ -21,16 +23,21 @@ for i=1:10
     A(:,i) = transpose(abs(lambda_ML-lambda)/lambda);
     B(:,i) = transpose(abs(lambda_MAP-lambda)/lambda);   
 end
+
+
 figure;
-boxplot(B,'Color',"r");
-hold on;
-boxplot(A,'Color',"b");
-ylabel('Relative errors for estimates of lambda');
-xlabel('N')
-set(gca,'XTickLabel',{'5','10','20','40','60','80','100','500',' 1000 ','   10000'});
+boxplot(A, 'Labels', {'5','10','20','40','60','80','100','500','1000','10000'});
+xlabel("N");
+ylabel("Relative error for Maximum Likelihood Estimate");
+title("ML Estimate");
 
+pause(1);
+figure;
+boxplot(B, 'Labels', {'5','10','20','40','60','80','100','500','1000','10000'});
+xlabel("N");
+ylabel("Relative error for Mean Aposteriori Estimate");
+title("Mean Aposteriori Estimate");
 
-hold off;
 
 
 
